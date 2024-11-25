@@ -1,0 +1,175 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ok19112024;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Admin
+ */
+public class QuanLySach {
+    private ArrayList<Tailieu> danhSachTaiLieu = new ArrayList<>();
+
+
+    public void nhapTaiLieu() {
+        System.out.println("Chon loai tai lieu de nhap :");
+        System.out.println("1. Sach");
+        System.out.println("2. Tap chi");
+        System.out.println("3. Bao");
+        System.out.print("Lua chon :  ");
+        Scanner sc = new Scanner(System.in);
+        int loai = sc.nextInt();
+
+        Tailieu taiLieu;
+        switch (loai) {
+            case 1:
+                taiLieu = new Sach();
+                break;
+            case 2:
+                taiLieu = new Tapchi();
+                break;
+            case 3:
+                taiLieu = new Bao();
+                break;
+            default:
+                System.out.println("Lua chon khong hop le!");
+                return;
+        }
+
+        taiLieu.nhap();
+        danhSachTaiLieu.add(taiLieu);
+        System.out.println("Them tai lieu thanh cong!");
+    }
+
+    public void hienThiTaiLieu() {
+        if (danhSachTaiLieu.isEmpty()) {
+            System.out.println("Danh sach trong!");
+            return;
+        }
+
+        for (int i = 0; i < danhSachTaiLieu.size(); i++) {
+            System.out.println("Tai lieu " + (i + 1) + ":");
+            danhSachTaiLieu.get(i).in();
+            System.out.println("--------------------");
+        }
+    }
+
+    public static void main(String[] args) {
+        QuanLySach quanLySach = new QuanLySach();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("1. Nhap tai lieu");
+            System.out.println("2. In tai lieu");
+            System.out.println("3. Exit");
+            System.out.print("Lua chon : ");
+            int choice = Integer.parseInt(scanner.nextLine());
+
+            switch (choice) {
+                case 1:
+                    quanLySach.nhapTaiLieu();
+                    break;
+                case 2:
+                    quanLySach.hienThiTaiLieu();
+                    break;
+                case 3:
+                    System.out.println("Exit.");
+                    return;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+            }
+        }
+    }
+}/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ok19112024;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Admin
+ */
+public class QuanLySach {
+    private ArrayList<Tailieu> danhSachTaiLieu = new ArrayList<>();
+
+
+    public void nhapTaiLieu() {
+        System.out.println("Chon loai tai lieu de nhap :");
+        System.out.println("1. Sach");
+        System.out.println("2. Tap chi");
+        System.out.println("3. Bao");
+        System.out.print("Lua chon :  ");
+        Scanner sc = new Scanner(System.in);
+        int loai = sc.nextInt();
+
+        Tailieu taiLieu;
+        switch (loai) {
+            case 1:
+                taiLieu = new Sach();
+                break;
+            case 2:
+                taiLieu = new Tapchi();
+                break;
+            case 3:
+                taiLieu = new Bao();
+                break;
+            default:
+                System.out.println("Lua chon khong hop le!");
+                return;
+        }
+
+        taiLieu.nhap();
+        danhSachTaiLieu.add(taiLieu);
+        System.out.println("Them tai lieu thanh cong!");
+    }
+
+    public void hienThiTaiLieu() {
+        if (danhSachTaiLieu.isEmpty()) {
+            System.out.println("Danh sach trong!");
+            return;
+        }
+
+        for (int i = 0; i < danhSachTaiLieu.size(); i++) {
+            System.out.println("Tai lieu " + (i + 1) + ":");
+            danhSachTaiLieu.get(i).in();
+            System.out.println("--------------------");
+        }
+    }
+
+    public static void main(String[] args) {
+        QuanLySach quanLySach = new QuanLySach();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("1. Nhap tai lieu");
+            System.out.println("2. In tai lieu");
+            System.out.println("3. Exit");
+            System.out.print("Lua chon : ");
+            int choice = Integer.parseInt(scanner.nextLine());
+
+            switch (choice) {
+                case 1:
+                    quanLySach.nhapTaiLieu();
+                    break;
+                case 2:
+                    quanLySach.hienThiTaiLieu();
+                    break;
+                case 3:
+                    System.out.println("Exit.");
+                    return;
+                default:
+                    System.out.println("Lua chon khong hop le!");
+            }
+        }
+    }
+}
+
+
