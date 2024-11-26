@@ -1,0 +1,99 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package c2;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Admin
+ */
+public class TuyenSinh {
+
+    private ArrayList<ThiSinh> danhSachThiSinh = new ArrayList<>();
+    public Scanner sc = new Scanner(System.in);
+
+    public void nhapThiSinh() {
+        System.out.print(" Nhap khoi cua thi sinh : ");
+        String loai = sc.nextLine();
+        ThiSinh thiSinh;
+        switch (loai) {
+            case "A":
+                thiSinh = new KhoiA();
+                break;
+            case "B":
+                thiSinh = new KhoiB();
+                break;
+            case "C":
+                thiSinh = new KhoiC();
+                break;
+            default:
+                System.out.println("Lua chon khong hop le!");
+                return;
+        }
+        thiSinh.nhap();
+        danhSachThiSinh.add(thiSinh);
+        System.out.println("Da them thanh cong thi sinh du thi !");
+    }
+
+    public void inThiSinh() {
+        if (danhSachThiSinh.isEmpty()) {
+            System.out.println("Danh sach trong!");
+            return;
+        }
+        for (int i = 0; i < danhSachThiSinh.size(); i++) {
+            System.out.println("Thi sinh  " + (i + 1) + ":");
+            danhSachThiSinh.get(i).in();
+            System.out.println("--------------------");
+        }
+    }
+
+    public static void main(String[] args) {
+        TuyenSinh tuyenSinh = new TuyenSinh();
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("------ Tuyen sinh -------");
+            System.out.println("1. Nhap thong tin thi sinh");
+            System.out.println("2. In thong tin thi sinh");
+            System.out.println("3. Tim kiem thi sinh theo so bao danh");
+            System.out.println("4. Exit");
+            System.out.print("Lua chon cua ban : ");
+            int lc = sc.nextInt();
+            switch (lc) {
+                case 1:
+                    tuyenSinh.nhapThiSinh();
+                    break;
+                case 2:
+                    tuyenSinh.inThiSinh();
+                    break;
+                case 3:
+                    tuyenSinh.findSoBaoDanh();
+                    break;
+                case 4:
+                    System.out.println("Cam on da su dung chuong trinh !!!");
+                    return;
+            }
+        }
+    }
+
+    public void findSoBaoDanh() {
+        System.out.print("Nhap so bao danh thi sinh can tim : ");
+        String find;
+        find = sc.nextLine();
+        boolean found = false;
+        for (int i = 0; i < danhSachThiSinh.size(); i++) {
+            String ok = danhSachThiSinh.get(i).getSoBaoDanh();
+            if (ok.equals(find)) {
+                danhSachThiSinh.get(i).in();
+                System.out.println("--------------------");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("Khong tim thay");
+        }
+    }
+}
